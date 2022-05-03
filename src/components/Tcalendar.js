@@ -17,7 +17,7 @@ function Tcalendar() {
             return setData(
             trainings.map((training, index) => ({
             id: index,
-            title: training.activity + " with " + training.customer.lastname + ", " + training.customer.firstname,
+            title: training.activity + ": " + training.customer.lastname + ", " + training.customer.firstname,
             start: moment(training.date)._d,
             end: moment(training.date).add(training.duration, 'minutes')._d  
 
