@@ -3,10 +3,8 @@ import { AgGridReact } from 'ag-grid-react';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Snackbar from '@mui/material/Snackbar';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import MuiAlert from '@mui/material/Alert';
 import moment from 'moment/moment'
-
-import Editcustomer from './Editcustomer';
 
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
@@ -71,6 +69,11 @@ const [columns] = useState([
         return params.data.customer.firstname + ' ' + params.data.customer.lastname
       }
     },
+
+
+
+
+
 
 
     {

@@ -8,6 +8,7 @@ import Box from '@mui/material/Box';
 import Customerlist from './Customerlist';
 import Traininglist from './Traininglist';
 import Tcalendar from './Tcalendar';
+import Statistacs from './Statistacs';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -64,6 +65,7 @@ export default function VerticalTabs() {
         <Tab label="&nbsp;Customer list&nbsp;" {...a11yProps(0)} />
         <Tab label="&nbsp;Training list&nbsp;" {...a11yProps(1)} />
         <Tab label="&nbsp;Calendar&nbsp;" {...a11yProps(2)} />
+        <Tab label="&nbsp;Statistics&nbsp;" {...a11yProps(3)} />
       </Tabs>
       <TabPanel value={value} index={0}>
         <Customerlist />
@@ -73,6 +75,9 @@ export default function VerticalTabs() {
       </TabPanel>
       <TabPanel value={value} index={2}>
         <Tcalendar />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        <Statistacs />
       </TabPanel>
 
     </Box>

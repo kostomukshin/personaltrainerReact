@@ -4,7 +4,7 @@ import { AgGridReact } from 'ag-grid-react';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Snackbar from '@mui/material/Snackbar';
-import MuiAlert, { AlertProps } from '@mui/material/Alert';
+import MuiAlert from '@mui/material/Alert';
 
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-material.css';
@@ -12,8 +12,6 @@ import 'ag-grid-community/dist/styles/ag-theme-material.css';
 import Addcustomer from './Addcustomer';
 import Editcustomer from './Editcustomer';
 import Addtraining from './Addtraining';
-import { color } from '@mui/system';
-import { alignProperty } from '@mui/material/styles/cssUtils';
 
 const Alert = React.forwardRef(function Alert(props, ref) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -80,7 +78,7 @@ const updateCustomer = (updatedCustomer, link) => {
     if (!response.ok) {
       alert('Something went wrong while editing a customer')
     } else {
-      setMsg('Customer was edited successfully!');
+      setMsg('Customer details was edited successfully!');
       setOpen(true);
       fetchCustomers();
     }
@@ -89,7 +87,7 @@ const updateCustomer = (updatedCustomer, link) => {
 }
 
 const addTraining = (training) => {
-  fetch('https://customerrest.herokuapp.com/gettrainings', {
+  fetch('https://customerrest.herokuapp.com/api/trainings', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -111,13 +109,14 @@ const addTraining = (training) => {
 
 
 const [columns] = useState([
-    {headerName: 'First Name', field: 'firstname', sortable: true, filter: true, width: 130}, 
-    {headerName: 'Last Name', field: 'lastname', sortable: true, filter: true, width: 130},
-    {headerName: 'Address', field: 'streetaddress', sortable: true, filter: true, width: 160},
-    {headerName: 'Postcode', field: 'postcode', sortable: true, filter: true, width: 120},
-    {headerName: 'City', field: 'city', sortable: true, filter: true, width: 140},
-    {headerName: 'Email', field: 'email', sortable: true, filter: true, width: 160},
-    {headerName: 'Phone', field: 'phone', sortable: true, filter: true, width: 130},
+  {colId: 1, headerName: 'First Name', field: 'firstname', sortable: true, filter: true, width: 130}, 
+  {colId: 2, headerName: 'Last Name', field: 'lastname', sortable: true, filter: true, width: 130},
+  {colId: 3, headerName: 'Address', field: 'streetaddress', sortable: true, filter: true, width: 160},
+  {colId: 4, headerName: 'Postcode', field: 'postcode', sortable: true, filter: true, width: 120},
+  {colId: 5, headerName: 'City', field: 'city', sortable: true, filter: true, width: 140},
+  {colId: 6, headerName: 'Email', field: 'email', sortable: true, filter: true, width: 160},
+  {colId: 7, headerName: 'Phone', field: 'phone', sortable: true, filter: true, width: 130},
+
     {
       headerName: '',
       width: 50,
@@ -147,7 +146,7 @@ const [columns] = useState([
 ])
 
 const onBtnExport = useCallback(() => {
-  gridRef.current.api.exportDataAsCsv();
+  gridRef.current.api.exportDataAsCsv({columnKeys: [1,2, 3, 4, 5, 6, 7]});
 }, []);
 
     return (
