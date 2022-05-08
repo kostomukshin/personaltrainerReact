@@ -62,21 +62,22 @@ export default function VerticalTabs() {
         aria-label="Vertical tabs example"
         sx={{ borderRight: 1, borderColor: 'divider' }}
       >
-        <Tab label="&nbsp;Customer list&nbsp;" {...a11yProps(0)} />
+
+        <Tab label="&nbsp;Customer list&nbsp;" {...a11yProps(0)}/>
         <Tab label="&nbsp;Training list&nbsp;" {...a11yProps(1)} />
         <Tab label="&nbsp;Calendar&nbsp;" {...a11yProps(2)} />
         <Tab label="&nbsp;Statistics&nbsp;" {...a11yProps(3)} />
       </Tabs>
-      <TabPanel value={value} index={0}>
+      <TabPanel value={value} index={0}  href="/customerlist">
         <Customerlist />
       </TabPanel>
-      <TabPanel value={value} index={1}>
+      <TabPanel value={value} index={1} href="/traininglist">
         <Traininglist />
       </TabPanel>
-      <TabPanel value={value} index={2}>
+      <TabPanel value={value} index={2} href="/calendar">
         <Tcalendar />
       </TabPanel>
-      <TabPanel value={value} index={3}>
+      <TabPanel value={value} index={3} href="/statistics">
         <Statistacs />
       </TabPanel>
 
