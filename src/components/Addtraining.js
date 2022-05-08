@@ -12,7 +12,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 function Addtraining({ params, addTraining }) {
 
     const [open, setOpen] = useState(false);
-    const [date, setDate] = useState(new Date());
     const [training, setTraining] = useState({
 
         activity: '',
@@ -44,10 +43,7 @@ function Addtraining({ params, addTraining }) {
     setOpen(false);
     }
 
-    const changeDate = (date) => {
-        setDate(date);
-        setTraining({...training, date: date.toISOString()});
-    }
+   
   
   
     return(
